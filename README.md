@@ -1,4 +1,4 @@
-# PRÁCTICA 1: El Arquitecto Visual - CSS y Modelo de Caja
+# PRÁCTICA 1: 
 
 ---
 
