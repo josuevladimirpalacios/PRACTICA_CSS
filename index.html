@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Pokémon: Pikachu - El Último Checkpoint</title>
+    
+    <!-- CONEXIÓN SEMÁNTICA: Vinculamos la estructura (HTML) con el diseño (CSS) -->
+    <!-- Apunta a la carpeta css/estilos.css que nos pide la rúbrica -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- Contenedor principal de la página -->
+    <main class="container">
+        
+        <!-- Tarjeta de Información (Card) como un componente independiente -->
+        <article class="card">
+            
+            <!-- Imagen del Pokémon con un atributo 'alt' altamente descriptivo para SEO y Accesibilidad -->
+            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" 
+                 alt="Pikachu de frente sonriendo con las mejillas rojas y orejas levantadas cargando electricidad" 
+                 class="card-img">
+            
+            <!-- Cuerpo informativo de la tarjeta (Card Body) -->
+            <div class="card-body">
+                <span class="card-badge">Nº 025</span>
+                <h1 class="card-title">Pikachu</h1>
+                <p class="card-subtitle">Pokémon Tipo Eléctrico</p>
+                
+                <p class="card-description">
+                    Pikachu almacena electricidad en sus mejillas. Cuando libera esta energía acumulada de golpe, puede lanzar potentes descargas eléctricas para defenderse de sus oponentes.
+                </p>
+                
+                <!-- Lista desordenada con las estadísticas del Pokémon (Semántica HTML) -->
+                <ul class="card-stats">
+                    <li><strong>Categoría:</strong> Ratón</li>
+                    <li><strong>Habilidad:</strong> Estática</li>
+                    <li><strong>Peso:</strong> 6.0 kg</li>
+                </ul>
+                
+                <!-- Botón de interacción del usuario -->
+                <a href="#" class="card-btn">Ver Ataques</a>
+            </div>
+            
+        </article>
+        
+    </main>
+
+</body>
+</html>

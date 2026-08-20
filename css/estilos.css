@@ -1,0 +1,191 @@
+/* ==========================================================================
+   EL ARQUITECTO VISUAL - HOJA DE ESTILOS (estilos.css)
+   Práctica 1: CSS y Modelo de Caja
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. RESET Y CONFIGURACIÓN GLOBAL (Selector Universal)
+   --------------------------------------------------------------------------
+   Abstracción: El navegador por defecto aplica márgenes y rellenos a muchas 
+   etiquetas. Con el selector universal (*), "reseteamos" la pantalla a cero 
+   para tener control total sobre el Modelo de Caja desde el inicio [3, 4].
+   
+   Además, usamos 'box-sizing: border-box'. Esto cambia la lógica de cómo 
+   el navegador calcula el tamaño: ahora el padding y el border se quedan 
+   adentro del ancho (width) total que definamos, evitando que la caja se 
+   deforme o se vuelva más grande de lo planeado.
+-------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Principio de predictibilidad en el modelo de caja */
+}
+
+/* --------------------------------------------------------------------------
+   2. EL LIENZO PRINCIPAL (Cuerpo de la página)
+   -------------------------------------------------------------------------- */
+body {
+    /* Tipografía: Usamos una fuente Sans-serif (Segoe UI, Arial, sans-serif) 
+       porque las pantallas digitales renderizan mejor los bordes rectos y limpios, 
+       disminuyendo la fatiga visual en comparación con una Serif [5, 6]. */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Paleta de Colores: Un gris muy suave de fondo para que contraste con 
+       el blanco de la tarjeta sin lastimar la vista del usuario [7, 8]. */
+    background-color: #f4f7f6;
+    color: #333333;
+    
+    /* Posicionamiento y Centrado: Usamos Flexbox para centrar nuestra tarjeta 
+       perfectamente en el centro horizontal y vertical de la pantalla. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   3. EL CONTENEDOR PRINCIPAL: LA TARJETA (The Box Model in Action)
+   -------------------------------------------------------------------------- */
+.card {
+    background-color: #ffffff; /* Fondo blanco para destacar el contenido [8] */
+    
+    /* Dimensionamiento (El error del practicante era ocupar toda la pantalla) */
+    width: 100%;
+    max-width: 360px; /* Limitamos el ancho para que parezca una tarjeta real [9] */
+    
+    /* Bordes y Esquinas redondeadas (Suavidad visual) */
+    border: 2px solid #e0e0e0; /* CORRECCIÓN: Sintaxis correcta de border (grosor estilo color) [10, 11] */
+    border-radius: 16px; /* Esquinas redondeadas [11] */
+    
+    /* El Margen exterior: Separa la tarjeta de los bordes de la pantalla en móviles [9] */
+    margin: 20px;
+    
+    /* Sombra para darle profundidad tridimensional (Efecto de elevación) */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    
+    /* Ocultamos lo que sobresalga para que la imagen de arriba respete las esquinas redondeadas */
+    overflow: hidden; 
+    
+    /* Animación de transición suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto interactivo: Causa y Efecto al pasar el cursor (Hover) */
+.card:hover {
+    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   4. LA IMAGEN DEL COMPONENTE
+   -------------------------------------------------------------------------- */
+.card-img {
+    width: 100%; /* La imagen se adapta al 100% del ancho de su caja contenedora */
+    height: 250px;
+    object-fit: contain; /* Mantiene la proporción del Pokémon sin deformarlo */
+    
+    /* Degradado lineal suave de fondo (estilo Pokéball/energía) [12, 13] */
+    background: linear-gradient(135deg, #fffcf0 0%, #fff3cd 100%); 
+    padding: 20px; /* Relleno interior para que el Pokémon respire [9] */
+}
+
+/* --------------------------------------------------------------------------
+   5. EL CUERPO DE LA TARJETA (Relleno y Contenido de texto)
+   -------------------------------------------------------------------------- */
+.card-body {
+    /* CORRECCIÓN: Agregamos padding para crear espacio interior [9]. 
+       El texto ya no choca contra los bordes de la tarjeta, mejorando la legibilidad. */
+    padding: 24px; 
+}
+
+/* Badge o Etiqueta de ID (Nº 025) */
+.card-badge {
+    display: inline-block;
+    background-color: #fff3cd; /* Amarillo suave para Pikachu [8] */
+    color: #856404;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 12px; /* Espacio interior del badge [9] */
+    border-radius: 20px; /* Bordes de píldora [11] */
+    margin-bottom: 12px; /* Empuja el título hacia abajo [9] */
+    text-transform: uppercase;
+}
+
+/* Título de la Tarjeta */
+.card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+/* Subtítulo */
+.card-subtitle {
+    font-size: 0.9rem;
+    color: #e0a800; /* Color dorado/eléctrico [5] */
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* Descripción del Pokémon */
+.card-description {
+    font-size: 0.9rem;
+    color: #666666;
+    line-height: 1.5; /* Altura de línea para mejorar la legibilidad del párrafo [14] */
+    margin-bottom: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   6. LAS ESTADÍSTICAS (Lista Estructurada)
+   -------------------------------------------------------------------------- */
+.card-stats {
+    list-style: none; /* Quitamos las viñetas por defecto */
+    border-top: 1px solid #eeeeee; /* Línea divisoria superior */
+    border-bottom: 1px solid #eeeeee; /* Línea divisoria inferior */
+    padding: 12px 0; /* Relleno superior e inferior [9] */
+    margin-bottom: 24px; /* Empuja el botón hacia abajo [9] */
+}
+
+.card-stats li {
+    font-size: 0.85rem;
+    color: #555555;
+    margin-bottom: 6px;
+}
+
+.card-stats li:last-child {
+    margin-bottom: 0; /* Evita margen innecesario en la última fila [9] */
+}
+
+.card-stats strong {
+    color: #1a1a1a;
+}
+
+/* --------------------------------------------------------------------------
+   7. EL BOTÓN DE ACCIÓN (Interacción)
+   -------------------------------------------------------------------------- */
+.card-btn {
+    display: block; /* Ocupa todo el ancho disponible */
+    text-align: center;
+    background-color: #ffc107; /* Amarillo Pikachu vibrante pero balanceado [8] */
+    color: #1a1a1a;
+    text-decoration: none; /* Quitamos el subrayado por defecto de los enlaces [14] */
+    font-weight: bold;
+    font-size: 0.95rem;
+    
+    /* El Modelo de caja en el botón */
+    padding: 12px 20px; /* Relleno que expande el botón y el área clicable [9] */
+    border-radius: 8px; /* Bordes redondeados [11] */
+    
+    /* Transición de colores y efectos visuales */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Feedback interactivo del botón */
+.card-btn:hover {
+    background-color: #e0a800; /* Se oscurece al pasar el cursor */
+}
+
+/* Efecto al hacer clic físico */
+.card-btn:active {
+    transform: scale(0.98); /* Pequeño efecto de hundimiento táctil */
+}
